@@ -1,0 +1,34 @@
+// make breakpoint names the same accross both style-components and scss
+
+// js: Styles.media.max.m
+// js: Styles.media.min.m
+
+
+$screen_xxl: 1370px;
+$screen_xl: 1170px;
+$screen_l: 992px;
+$screen_m: 768px;
+$screen_s: 500px;
+$screen_xs: 376px;
+$screen_xxs: 333px;
+
+$screen_sizes: (
+  xxl: $screen_xxl,
+  xl: $screen_xl,
+  l: $screen_l,
+  m: $screen_m,
+  s: $screen_s,
+  xs: $screen_xs,
+  xxs: $screen_xxs
+);
+
+@mixin media_max($size_key) {
+  $size_value = map-get($map, $size_key);
+  @media (max-width: $size_value) { @content ; }
+}
+
+@mixin media_min($size_key) {
+  $size_value = map-get($map, $size_key);
+  @media (min-width: $size_value) { @content ; }
+}
+
