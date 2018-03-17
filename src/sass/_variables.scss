@@ -1,4 +1,51 @@
 
+$size_xxs: "xxs";
+$size_xs: "xs";
+$size_s: "s";
+$size_m: "m";
+$size_l: "l";
+$size_xl: "xl";
+$size_xxl: "xxl";
+
+$size_names: $size_xxs, $size_xs, $size_s, $size_m, $size_l, $size_xl, $size_xxl;
+
+//$screen_xxl: 1370px;
+//$screen_xl: 1170px;
+//$screen_l: 992px;
+//$screen_m: 768px;
+//$screen_s: 500px;
+//$screen_xs: 376px;
+//$screen_xxs: 333px;
+
+$screen_sizes: (
+  $size_xxs: 333px,
+  $size_xs: 376px,
+  $size_s: 500px,
+  $size_m: 768px,
+  $size_l: 992px,
+  $size_xl: 1170px,
+  $size_xxl: 1370px
+);
+
+$screen_sizes: (
+  $size_xxs: 333px,
+  $size_xs: 376px,
+  $size_s: 500px,
+  $size_m: 768px,
+  $size_l: 992px,
+  $size_xl: 1170px,
+  $size_xxl: 1370px
+);
+
+//$screen_sizes: (
+//        $size_xxl: $screen_xxl,
+//        $size_xl: $screen_xl,
+//        $size_l: $screen_l,
+//        $size_m: $screen_m,
+//        $size_s: $screen_s,
+//        $size_xs: $screen_xs,
+//        $size_xxs: $screen_xxs
+//);
 
 $spacing-xxs: 2px;
 $spacing-xs: 2px;
@@ -7,3 +54,15 @@ $spacing-m: 2px;
 $spacing-l: 2px;
 $spacing-xl: 2px;
 $spacing-xxl: 2px;
+
+$spacing_sizes: (
+  $size_xxs: 333px,
+  $size_xs: 376px,
+  $size_s: 500px,
+  $size_m: 768px,
+  $size_l: 992px,
+  $size_xl: 1170px,
+  $size_xxl: 1370px
+);
+
+

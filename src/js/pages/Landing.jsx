@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
 import Page from 'pages/Page'
-import Layout from 'components/Layout'
+import LO from 'components/LO'
 
 
 /**
@@ -43,7 +43,7 @@ class Landing extends Component {
 
     return (
       <Page name="landing">
-        <Layout alonzo v_bottom h_center>
+        <LO h align={[LO.V, LO.H]} >
           <div>
             <AutoComplete
               hintText="Noun"
@@ -72,10 +72,10 @@ class Landing extends Component {
               fullWidth
             />
           </div>
-        </Layout>
-        <Layout>
+        </LO>
+        <LO>
           <RaisedButton label="submit" fullWidth />
-        </Layout>
+        </LO>
       </Page>
     );
   }

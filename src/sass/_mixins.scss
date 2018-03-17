@@ -3,32 +3,52 @@
 // js: Styles.media.max.m
 // js: Styles.media.min.m
 
-
-$screen_xxl: 1370px;
-$screen_xl: 1170px;
-$screen_l: 992px;
-$screen_m: 768px;
-$screen_s: 500px;
-$screen_xs: 376px;
-$screen_xxs: 333px;
-
-$screen_sizes: (
-  xxl: $screen_xxl,
-  xl: $screen_xl,
-  l: $screen_l,
-  m: $screen_m,
-  s: $screen_s,
-  xs: $screen_xs,
-  xxs: $screen_xxs
-);
-
 @mixin media_max($size_key) {
-  $size_value = map-get($map, $size_key);
-  @media (max-width: $size_value) { @content ; }
+  $media_max_size_value: map-get($screen_sizes, $size_key);
+  @media (min-width: $media_max_size_value) { @content ; }
 }
 
 @mixin media_min($size_key) {
-  $size_value = map-get($map, $size_key);
-  @media (min-width: $size_value) { @content ; }
+  $media_min_size_value: map-get($screen_sizes, $size_key);
+  @media (min-width: $media_min_size_value) { @content ; }
 }
+
+@mixin modifier($make, $color) {
+  .#{$make} {
+    border: 1px solid black;
+  }
+}
+
+
+//@mixin flex-child($flex-grow: null) {
+//  & > * {
+//    @if ($flex-grow) { flex-grow: $flex-grow; }
+//  }
+//}
+//
+//@mixin flex-attributes($flex-direction: null, $align-items: null, $justify-content: null) {
+//  @if ($flex-direction) { flex-direction: $flex-direction; }
+//  @if ($align-items) { align-items: $align-items; }
+//  @if ($justify-content) { justify-content: $justify-content; }
+//
+//  //@if ( content-exists() ) {
+//  //  & > * {
+//  //    @content;
+//  //  }
+//  //}
+//}
+//
+//@mixin flex($flex-direction: null, $align-items: null, $justify-content: null) {
+//  display: flex;
+//  @include flex-attributes($flex-direction, $align-items, $justify-content);
+//
+//  //@if ( content-exists() ) {
+//  //  & > * {
+//  //    @content;
+//  //  }
+//  //}
+//}
+
+
+
 

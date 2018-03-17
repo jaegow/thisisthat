@@ -2,7 +2,8 @@
 var gulp = require('gulp');
 var gulp_util = require('gulp-util');
 var gulp_clean = require('gulp-clean');
-var gulp_sass = require('gulp-sass');
+// var gulp_sass = require('gulp-sass'); /// todo: remove package if working
+var gulp_sass = require('gulp-ruby-sass');
 var gulp_sequence = require('gulp-sequence').use(gulp);
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
@@ -12,6 +13,7 @@ var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 var browserSync = require('browser-sync');
 // var gulp_sourcemaps = require('gulp-sourcemaps');
 var styleguidist = require('react-styleguidist');
+var combineMediaQueries = require('gulp-combine-media-queries');
 
 
 const config = {
@@ -58,15 +60,42 @@ gulp.task('clean', function(callback) {
   return gulp.src(config.build, {read: false})
     .pipe(gulp_clean());
 });
+// gulp.task('sass', function(callback) {
+//   return gulp.src(config.sass.glob)
+//     .pipe(gulp_sass())
+//     .on('error', function(err){
+//       browserSync_app.notify(err.message);
+//       this.emit('end');
+//     })
+//     .pipe(gulp.dest(config.css.build.directory))
+//     .pipe(browserSync_app.stream({match: "**/*.css"}));
+// });
+
 gulp.task('sass', function(callback) {
-  return gulp.src(config.sass.glob)
-    .pipe(gulp_sass())
+
+  return gulp_sass(config.sass.glob)
     .on('error', function(err){
       browserSync_app.notify(err.message);
       this.emit('end');
     })
     .pipe(gulp.dest(config.css.build.directory))
     .pipe(browserSync_app.stream({match: "**/*.css"}));
+});
+
+// gulp.task('sass', () =>
+//   sass('source/file.scss')
+//     .on('error', sass.logError)
+//     .pipe(gulp.dest('result'))
+// );
+
+// todo: add this command for prod build
+// combine all similar media queries into single
+gulp.task('cmq', function () {
+  gulp.src(config.css.build.directory + config.css.build.fileName)
+    .pipe(combineMediaQueries({
+      log: true
+    }))
+    .pipe(gulp.dest(config.css.build.directory + config.css.build.fileName)); // todo: confirm overwrite works
 });
 
 // todo: don't use this... separate and remove need to recompile html file when other webpack changes happen

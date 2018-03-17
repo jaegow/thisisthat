@@ -55,7 +55,5 @@ export default {
     max: media_max
   },
   spacing,
-  utils: {
-    prop_assist
-  }
+  utils: {}
 };

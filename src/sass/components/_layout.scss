@@ -1,10 +1,87 @@
 .layout {
   display: flex;
-}
 
-.layout--alonzo {
-  @extend .layout;
-  @include media_min($screen_m) {
-    
+  &--row {
+    flex-direction: row;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &--center_v {
+    align-items: center;
+  }
+
+  &--center_h {
+    justify-content: center;
+  }
+
+  &--justify-content-space-around {
+    justify-content: space-around;
   }
 }
+
+
+//   ${props => props.h_center && 'justify-content: center;'}
+//   ${props => props.v_center && 'align-items: center;'}
+//   ${props => props.v_bottom && 'align-items: flex-end;'}
+
+//.layout--alonzo {
+//  flex-direction: row;
+//  @include media_min($size_m) {
+//    flex-direction: column;
+//  }
+//}
+//
+//.layout--#{$size_m} {
+//  @include media_min($size_m) {
+//    flex-direction: column;
+//  }
+//}
+
+
+
+
+
+//.layout--IOI {
+//  @extend .layout;
+//  & > * {
+//    flex-grow: 1;
+//  }
+//}
+//
+//.layout--I-O-I {
+//  @extend .layout;
+//  justify-content: space-around;
+//
+//  & > * {
+//    flex-grow: 1;
+//  }
+//}
+//
+//.layout--IO-OI {
+//  @extend .layout;
+//  justify-content: space-between;
+//
+//  & > * {
+//    flex-grow: 1;
+//  }
+//}
+//
+//.layout--I-I {
+//
+//}
+//
+//.layout--I_I {
+//
+//}
+//
+//.layout--I--I {
+//
+//}
